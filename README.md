@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # scratch-tutoring-web
 > 스크래치 튜터링 시스템
 
@@ -96,3 +97,6 @@ yarn dev:hot
 ```
 
 위 예시는 app 은 5001 포트, admin 은 5002 포트를 사용하는 예시입니다.
+=======
+# dash-Scratch-web
+>>>>>>> 9dd001a4b722ff5edf76a9f2fa1d359c62398b97
