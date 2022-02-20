@@ -1,0 +1,54 @@
+query GetRegularPlaylists {
+  regularPlaylists {
+    id
+    name
+    isPublic
+    week
+    description
+    thumbnails
+    updatedAt
+    videos {
+      nodes {
+        id
+      }
+      pageInfo {
+        countTotal
+      }
+    }
+  }
+}
+
+mutation DeleteRegularPlaylist($ids: [Float!]!) {
+  deleteRegularPlaylist(ids: $ids)
+}
+
+
+query PaginatedRegularPlaylist($nameFilter: String, $size: Int, $page: Int, $videosSize2: Int, $videosPage2: Int) {
+  paginatedRegularPlaylist(nameFilter: $nameFilter, size: $size, page: $page) {
+    nodes {
+      id
+      name
+      isPublic
+      week
+      description
+      thumbnails
+      videos(size: $videosSize2, page: $videosPage2) {
+        nodes {
+          id
+        }
+        pageInfo {
+          countTotal
+        }
+      }
+      updatedAt
+      createdAt
+    }
+    pageInfo {
+      countCurrent
+      countTotal
+      currentPage
+      hasNextPage
+      hasPreviousPage
+    }
+  }
+}

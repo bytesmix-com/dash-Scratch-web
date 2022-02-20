@@ -1,0 +1,32 @@
+# 재생목록 쿼리
+query GetRegularPlaylist($regularPlaylistId: Float!) {
+  regularPlaylist(id: $regularPlaylistId) {
+    id
+    name
+    isPublic
+    week
+    description
+    thumbnails
+    updatedAt
+    shareScratchWithRegularPlaylistId
+    createdAt
+    videos {
+      nodes {
+        id
+      }
+      pageInfo {
+        countTotal
+      }
+    }
+  }
+}
+# 재생목록 수정
+mutation ModifyRegularPlaylist($input: AddOrModifyRegularPlaylistInput!) {
+  addOrModifyRegularPlaylist(input: $input) {
+    id
+  }
+}
+# 재생목록 삭제 뮤테이션
+mutation DeleteRegularPlaylist($ids: [Float!]!) {
+  deleteRegularPlaylist(ids: $ids)
+}

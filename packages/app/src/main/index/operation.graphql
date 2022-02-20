@@ -1,0 +1,8 @@
+query GetStudentMe {
+  studentMe {
+    id
+    studentNumber
+    activatedAt
+    createdAt
+  }
+}

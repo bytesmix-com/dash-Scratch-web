@@ -1,0 +1,21 @@
+query PaginatedStudents($idFilter: String, $size: Int, $page: Int) {
+  paginatedStudents(idFilter: $idFilter, size: $size, page: $page) {
+    nodes {
+      id
+      studentNumber
+      activatedAt
+      createdAt
+    }
+    pageInfo {
+      countCurrent
+      countTotal
+      currentPage
+      hasNextPage
+      hasPreviousPage
+    }
+  }
+}
+
+mutation DeleteStudents($studentIds: [Float!]!) {
+  deleteStudents(studentIds: $studentIds)
+}

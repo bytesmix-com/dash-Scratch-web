@@ -1,0 +1,22 @@
+query RecommendedVideos($size: Int, $page: Int) {
+  recommendedPlaylist {
+    id
+    name
+    thumbnails
+    videos(size: $size, page: $page) {
+      nodes {
+        id
+        video_thumbnail
+        title
+        video_lengthInSeconds
+      }
+      pageInfo {
+        countCurrent
+        countTotal
+        currentPage
+        hasNextPage
+        hasPreviousPage
+      }
+    }
+  }
+}

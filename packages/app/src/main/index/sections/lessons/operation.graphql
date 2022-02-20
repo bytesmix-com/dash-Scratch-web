@@ -1,0 +1,73 @@
+query existingRegularPlaylistWeeks {
+  existingRegularPlaylistWeeks
+}
+
+query LastAccessedVideoAndPlaylist {
+  lastAccessedVideo {
+    id
+    playlist {
+      id
+      name
+      videos {
+        nodes {
+          id
+        }
+        pageInfo {
+          countTotal
+        }
+      }
+      progress
+      week
+    }
+  }
+  totalAverageProgress
+}
+
+query GetTotalVideoCountOfRegularPlaylist($week: Float!) {
+  regularPlaylistByWeek(week: $week) {
+    id
+    name
+    videos {
+      nodes {
+        id
+      }
+      pageInfo {
+        countTotal
+      }
+    }
+    progress
+    week
+  }
+}
+
+query RegularPlaylistByWeek($week: Float!, $size: Int, $page: Int) {
+  regularPlaylistByWeek(week: $week) {
+    id
+    name
+      progress
+    week
+    videos(size: $size, page: $page) {
+      nodes {
+        id
+        video_lengthInSeconds
+        video_thumbnail
+        title
+        description
+        sort
+        progress
+        files {
+          id
+          url
+          fileName
+        }
+      }
+      pageInfo {
+        countCurrent
+        countTotal
+        currentPage
+        hasNextPage
+        hasPreviousPage
+      }
+    }
+  }
+}

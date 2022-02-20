@@ -1,0 +1,14 @@
+mutation AddOrModifyRegularPlaylist($input: AddOrModifyRegularPlaylistInput!) {
+  addOrModifyRegularPlaylist(input: $input) {
+    id
+    name
+  }
+}
+
+query RegularPlaylistWeeks {
+  regularPlaylists {
+     name
+    id
+    week
+  }
+}

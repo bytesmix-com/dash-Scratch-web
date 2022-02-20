@@ -1,0 +1,9 @@
+mutation Login($input: LoginInput!) {
+  login(input: $input)
+}
+
+query IsLogined {
+  studentMe {
+    id
+  }
+}

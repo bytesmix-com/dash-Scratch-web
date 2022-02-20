@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "rootDirs": ["./src", "./shared", "./generated"],
+  },
+  "include": ["src/**/*", "shared/**/*", "generated/**/*"],
+  "exclude": ["generated/types/*.d.ts"]
+}

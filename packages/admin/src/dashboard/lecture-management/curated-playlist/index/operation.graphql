@@ -1,0 +1,50 @@
+query RecommendedPlaylist {
+  recommendedPlaylist {
+    id
+    name
+    thumbnails
+    updatedAt
+    createdAt
+    videos {
+      pageInfo {
+        countTotal
+      }
+    }
+  }
+}
+
+query PaginatedRecommendedVideos($playlistFilter: Float, $size: Int, $page: Int, $titleFilter: String) {
+  paginatedVideos(playlistFilter: $playlistFilter, size: $size, page: $page, titleFilter: $titleFilter) {
+    nodes {
+      id
+      video_thumbnail
+      video_url
+      title
+      description
+      video_lengthInSeconds
+      createdAt
+      tags
+      playlist {
+        id
+        week
+      }
+      isPublic
+      files {
+        id
+        fileName
+        url
+      }
+    }
+    pageInfo {
+      countCurrent
+      countTotal
+      currentPage
+      hasNextPage
+      hasPreviousPage
+    }
+  }
+}
+
+mutation DeleteVideo($ids: [Float!]!) {
+  deleteVideo(ids: $ids)
+}

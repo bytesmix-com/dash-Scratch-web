@@ -1,0 +1,7 @@
+mutation ChangeStudentPassword($input: ChangePasswordInput!) {
+  changeStudentPassword(input: $input)
+}
+
+mutation Logout {
+  logout
+}
