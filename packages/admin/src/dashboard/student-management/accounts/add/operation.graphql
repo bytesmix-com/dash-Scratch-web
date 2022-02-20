@@ -1,0 +1,3 @@
+mutation AddStudentIds($studentNumbers: [String!]!) {
+  addStudentIds(studentNumbers: $studentNumbers)
+}

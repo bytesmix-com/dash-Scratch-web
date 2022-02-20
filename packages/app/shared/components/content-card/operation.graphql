@@ -1,0 +1,21 @@
+query GetRecommendVideo($videoId: Float!) {
+  video(id: $videoId) {
+    id
+    video_url
+    title
+    description
+    isPublic
+    playlist {
+      name
+      id
+      week
+    }
+    files {
+      id
+      url
+      fileName
+    }
+    createdAt
+    updatedAt
+  }
+}

@@ -1,0 +1,35 @@
+query PaginatedDeleteStudentRequests(
+  $statusFilter: Float
+  $idFilter: String
+  $size: Int
+  $page: Int
+) {
+  paginatedDeleteStudentRequests(
+    statusFilter: $statusFilter
+    idFilter: $idFilter
+    size: $size
+    page: $page
+  ) {
+    nodes {
+      studentNumber
+      id
+      status
+      createdAt
+      updatedAt
+      student {
+        createdAt
+      }
+    }
+    pageInfo {
+      countCurrent
+      countTotal
+      currentPage
+      hasNextPage
+      hasPreviousPage
+    }
+  }
+}
+
+mutation ProcessDeleteStudentRequests($status: Float!, $ids: [Float!]!) {
+  processDeleteStudentRequests(status: $status, ids: $ids)
+}

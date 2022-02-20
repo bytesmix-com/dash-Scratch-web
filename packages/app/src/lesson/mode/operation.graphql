@@ -1,0 +1,23 @@
+query GetModeVideos($filter: RecommendedPlaylistVideosFilterInput, $size: Int, $page: Int) {
+  recommendedPlaylist {
+    videos(filter: $filter, size: $size, page: $page) {
+      nodes {
+        id
+        video_thumbnail
+        video_lengthInSeconds
+        title
+      }
+      pageInfo {
+        countCurrent
+        countTotal
+        currentPage
+        hasNextPage
+        hasPreviousPage
+      }
+    }
+  }
+}
+
+mutation MarkVideoProgress($progress: Float!, $videoId: Float!) {
+  markVideoProgress(progress: $progress, videoId: $videoId)
+}

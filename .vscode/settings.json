@@ -1,0 +1,19 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true // eslint Auto format
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "typescript.tsdk": "node_modules/typescript/lib", // ts css module type check
+  "typescript.enablePromptUseWorkspaceTsdk": true,   // ts css module type check
+  "editor.tabSize": 2,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "test-login-frontend/node_modules": false,
+  },
+}

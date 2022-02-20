@@ -1,0 +1,38 @@
+{
+  "name": "scratch-tutoring-web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Dicolabs Inc. <dev@dicolabs.kr>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "./packages/*"
+    ]
+  },
+  "scripts": {
+    "dev": "lerna run --parallel dev",
+    "dev:hot": "lerna run --parallel dev:hot",
+    "build": "lerna run build",
+    "build:ts": "lerna run build:ts",
+    "pull-types": "lerna run pull-types",
+    "serve": "lerna run --parallel serve",
+    "build:watch": "lerna run --parallel build:watch",
+    "bootstrap": "yarn && lerna bootstrap --use-workspaces && cd packages/gui && npm install",
+    "clean": "lerna clean --yes",
+    "clean:dist": "lerna exec -- rimraf dist",
+    "clean:types": "lerna exec -- rimraf generated/types/*.d.ts",
+    "clean:all": "yarn clean && yarn clean:dist && yarn clean:types && rm -rf node_modules",
+    "tsc": "lerna run --parallel type-check --stream",
+    "lint": "lerna run lint",
+    "lint:fix": "lerna run lint:fix",
+    "graphql-codegen": "NODE_TLS_REJECT_UNAUTHORIZED=0 lerna run --parallel graphql-codegen --stream",
+    "commit": "git-cz",
+    "type-check": "yarn build:ts && yarn pull-types && yarn tsc"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0",
+    "concurrently": "^6.4.0",
+    "git-cz": "4.8.0"
+  }
+}

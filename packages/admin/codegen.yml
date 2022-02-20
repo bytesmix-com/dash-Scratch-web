@@ -1,0 +1,21 @@
+schema: ${SCHEMA_PATH}
+hooks:
+  afterOneFileWrite:
+    - prettier --write
+documents: ["src/**/*.graphql", "shared/**/*.graphql"]
+watchConfig:
+  usePolling: true
+  interval: 1000
+generates:
+  ./generated/api/react-query.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-query
+    config:
+      exposeDocument: true
+      exposeQueryKeys: true
+      scalars:
+        Void: void
+        Timestamp: number
+      fetcher: graphql-request

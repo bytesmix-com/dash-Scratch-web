@@ -1,0 +1,9 @@
+query GetStudentNumber {
+  studentMe {
+    studentNumber
+  }
+}
+
+mutation Logout {
+  logout
+}

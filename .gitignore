@@ -1,0 +1,8 @@
+node_modules
+*.tsbuildinfo
+.env
+yarn-error.log
+.cert
+.env.local
+.env.dev
+*.log

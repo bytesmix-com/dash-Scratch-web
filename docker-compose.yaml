@@ -1,0 +1,24 @@
+version: "3.7"
+
+services:
+  web:
+    image: woohyunkim/arm64_v8_node_14:latest
+    command: sh -c "yarn bootstrap && yarn dev:hot"
+    ports:
+      - 5001:8001 #app
+      - 5002:8002 #admin
+      - 5003:8003 #gui
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - /app/node_modules
+      - /app/packages/app/node_modules
+      - /app/packages/admin/node_modules
+      - /app/packages/gui/node_modules
+    environment:
+      - APP_URL=https://local.stg-scratch-tutoring.app:5001
+      - ADMIN_URL=https://local.stg-scratch-tutoring.app:5002
+      - GUI_URL=https://local.stg-scratch-tutoring.app:5003
+      - APP_PORT=5001
+      - ADMIN_PORT=5002
+      - GUI_PORT=5003

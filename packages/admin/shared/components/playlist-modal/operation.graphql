@@ -1,0 +1,77 @@
+query PaginatedVideos($playlistFilter: Float, $size: Int, $page: Int) {
+  paginatedVideos(playlistFilter: $playlistFilter, size: $size, page: $page) {
+    nodes {
+      id
+      video_url
+      video_thumbnail
+      video_lengthInSeconds
+      title
+      playlist {
+        id
+        name
+        week
+      }
+      sort
+      createdAt
+      updatedAt
+    }
+    pageInfo {
+      countCurrent
+      countTotal
+      currentPage
+      hasNextPage
+      hasPreviousPage
+    }
+  }
+}
+
+query GetRecommendedVideosByWeek($filter: RecommendedPlaylistVideosFilterInput, $size: Int, $page: Int) {
+  recommendedPlaylist {
+    videos(filter: $filter, size: $size, page: $page) {
+      nodes {
+        id
+        video_url
+        video_thumbnail
+        video_lengthInSeconds
+        title
+        playlist {
+          id
+          name
+          week
+        }
+        sort
+        createdAt
+        updatedAt
+      }
+      pageInfo {
+        countCurrent
+        countTotal
+        currentPage
+        hasNextPage
+        hasPreviousPage
+      }
+    }
+  }
+}
+
+query Video($videoId: Float!) {
+  video(id: $videoId) {
+    id
+    video_url
+    title
+    description
+    isPublic
+    playlist {
+      name
+      id
+      week
+    }
+    files {
+      id
+      url
+      fileName
+    }
+    createdAt
+    updatedAt
+  }
+}

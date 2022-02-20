@@ -1,0 +1,52 @@
+query RegularPlaylistName {
+  regularPlaylists {
+    id
+    name
+    week
+  }
+}
+
+mutation AddOrModifyVideo($input: AddOrModifyVideoInput!) {
+  addOrModifyVideo(input: $input) {
+    id
+  }
+}
+
+mutation ScrapeYoutubeVideoLink($youtubeUrl: String!) {
+  scrapeYoutubeVideoLink(youtubeUrl: $youtubeUrl) {
+    video_title
+    video_createdAt
+    video_channelName
+    video_lengthInSeconds
+    video_thumbnail
+    video_link
+  }
+}
+
+query SavedVideo($videoId: Float!) {
+  video(id: $videoId) {
+    id
+    video_url
+    title
+    description
+    isPublic
+    video_title
+    video_createdAt
+    video_channelName
+    video_lengthInSeconds
+    video_thumbnail
+    shareScratchInRegularPlaylist
+    playlist {
+      name
+      id
+      week
+    }
+    files {
+      id
+      url
+      fileName
+    }
+    tags
+    recommendWeeks
+  }
+}

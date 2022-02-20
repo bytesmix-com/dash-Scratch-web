@@ -1,0 +1,53 @@
+# 비디오 단일 쿼리
+query GetVideo($videoId: Float!) {
+  video(id: $videoId) {
+    id
+    video_url
+    title
+    description
+    shareScratchInRegularPlaylist
+    orderInPlaylist
+    playlist {
+      id
+      name
+      week
+      shareScratchWithRegularPlaylistId
+      isScratchSharedToOtherPlaylist
+      videos {
+        nodes {
+          id
+        }
+        pageInfo {
+          countTotal
+        }
+      }
+    }
+    files {
+      id
+      url
+      fileName
+    }
+    sort
+  }
+}
+
+# 주차별 동영상
+query GetVideosByWeek($week: Float!) {
+  regularPlaylistByWeek(week: $week) {
+    videos {
+      nodes {
+        id
+        title
+        video_lengthInSeconds
+        progress
+      }
+    }
+  }
+}
+
+
+query GetStudentId {
+  studentMe {
+    id
+  }
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "gui.menuBar.LanguageSelector",
+    "description": "accessibility text for the language selection menu",
+    "defaultMessage": "language selector"
+  },
+  {
+    "id": "gui.menuBar.tutorialsLibrary",
+    "description": "accessibility text for the tutorials button",
+    "defaultMessage": "Tutorials"
+  },
+  {
+    "id": "gui.menuBar.restoreSprite",
+    "description": "Menu bar item for restoring the last deleted sprite.",
+    "defaultMessage": "Restore Sprite"
+  },
+  {
+    "id": "gui.menuBar.restoreSound",
+    "description": "Menu bar item for restoring the last deleted sound.",
+    "defaultMessage": "Restore Sound"
+  },
+  {
+    "id": "gui.menuBar.restoreCostume",
+    "description": "Menu bar item for restoring the last deleted costume.",
+    "defaultMessage": "Restore Costume"
+  },
+  {
+    "id": "gui.menuBar.restore",
+    "description": "Menu bar item for restoring the last deleted item in its disabled state.",
+    "defaultMessage": "Restore"
+  }
+]
