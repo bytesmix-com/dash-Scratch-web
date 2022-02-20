@@ -1,6 +1,15 @@
 # scratch-tutoring-web
 > 스크래치 튜터링 시스템
 
+## OS 버전 
+Ubuntu 20.04.3 LTS
+
+## 도메인
+- 도메인은 서버쪽 도메인과 웹쪽 도메인의 fqdn 이 동일해야합니다.
+- ex. dash-scratch.com (유저용 웹) , server.dash-scratch.com (서버) , admin.dash-scratch.com (어드민) , gui.dash-scratch.com (스크래치)
+- 또는
+- - ex. dash-scratch.com  (유저용 웹), dash-scratch.com:8080 (서버), dash-scratch.com:8081 (어드민) , dash-scratch.com:8082 (스크래치)
+
 ## 서버 내 설치 방법
 - packages/dist, packages/dist, packages/build 내에 .env 파일을 각각 생성 후 안에 내용을 ```SCHEMA_PATH=https://<프로덕션 서버 도메인>/graphql``` 적어주세요
 - yarn bootstrap
@@ -11,7 +20,7 @@
 2. admin => packages/dist
 3. gui => packages/build
 
-## Quick start
+## Quick start (개발용)
 ```bash
 sudo code /etc/hosts
 ```
