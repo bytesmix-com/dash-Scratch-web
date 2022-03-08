@@ -41,13 +41,27 @@ jobs:
       #       packages/admin/dist
       #       packages/app/dist
       #       packages/gui/build
+      - name: Install zip
+        uses: montudor/action-zip@v1
+
+      - name: Zip admin
+        run: zip -qq -r admin.zip dist
+        working-directory: packages/admin
+
+      - name: Zip app
+        run: zip -qq -r app.zip dist
+        working-directory: packages/app
+
+      - name: Zip gui
+        run: zip -qq -r gui.zip build
+        working-directory: packages/gui
 
       - uses: pyTooling/Actions/releaser@r0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           files: |
-            packages/admin/dist/**/*
-            packages/app/dist/**/*
-            packages/gui/build/**/*
+            admin.zip
+            gui.zip
+            app.zip
 
       
