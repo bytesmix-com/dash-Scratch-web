@@ -46,8 +46,8 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           files: |
-            packages/admin/dist
-            packages/app/dist
-            packages/gui/build
+            packages/admin/dist/**/*
+            packages/app/dist/**/*
+            packages/gui/build/**/*
 
       
