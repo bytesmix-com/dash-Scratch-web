@@ -33,14 +33,6 @@ jobs:
       - name: Build
         run: yarn build
 
-      # - name: Archive production artifacts
-      #   uses: actions/upload-artifact@v3
-      #   with:
-      #     name: web build artifacts
-      #     path: |
-      #       packages/admin/dist
-      #       packages/app/dist
-      #       packages/gui/build
       - name: Install zip
         uses: montudor/action-zip@v1
 
