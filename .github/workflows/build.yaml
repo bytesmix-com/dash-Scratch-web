@@ -1,4 +1,4 @@
-name: CI
+name: Build
 on:
   push:
     branches:
@@ -16,6 +16,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
+      - name: Add envs to app
+        run: |
+          echo "SCHEMA_PATH=https://api-scratch-tutoring.stg-branch.be/graphql" > packages/app/.env
+      - name: Add envs to admin
+        run: |
+          echo "SCHEMA_PATH=https://api-scratch-tutoring.stg-branch.be/graphql" > packages/admin/.env
       - name: Install dependencies
         run: yarn bootstrap
       
