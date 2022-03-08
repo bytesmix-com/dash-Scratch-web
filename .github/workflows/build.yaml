@@ -1,0 +1,48 @@
+name: Build
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+        with:
+          token: ${{ github.token }}
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Reconfigure git to use HTTP authentication
+        run: >
+          git config --global url."https://github.com/".insteadOf
+          ssh://git@github.com/
+          
+      - name: Add envs to app
+        run: |
+          echo "SCHEMA_PATH=https://api-scratch-tutoring.stg-branch.be/graphql" > packages/app/.env
+      - name: Add envs to admin
+        run: |
+          echo "SCHEMA_PATH=https://api-scratch-tutoring.stg-branch.be/graphql" > packages/admin/.env
+      - name: Install dependencies
+        run: yarn bootstrap
+      
+      - name: Install dependencies of gui
+        run: cd packages/gui && npm install
+
+      - name: Build
+        run: yarn build
+
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: web build artifacts
+          path: |
+            packages/admin/dist
+            packages/app/dist
+            packages/gui/build
+
+      
