@@ -20,7 +20,7 @@ jobs:
         run: >
           git config --global url."https://github.com/".insteadOf
           ssh://git@github.com/
-          
+
       - name: Add envs to app
         run: |
           echo "SCHEMA_PATH=https://api-scratch-tutoring.stg-branch.be/graphql" > packages/app/.env
@@ -30,19 +30,30 @@ jobs:
       - name: Install dependencies
         run: yarn bootstrap
       
-      - name: Install dependencies of gui
-        run: cd packages/gui && npm install
-
       - name: Build
         run: yarn build
 
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v3
+      - name: Install zip
+        uses: montudor/action-zip@v1
+
+      - name: Zip admin
+        run: zip -qq -r admin.zip dist
+        working-directory: packages/admin
+
+      - name: Zip app
+        run: zip -qq -r app.zip dist
+        working-directory: packages/app
+
+      - name: Zip gui
+        run: zip -qq -r gui.zip build
+        working-directory: packages/gui
+
+      - uses: pyTooling/Actions/releaser@r0
         with:
-          name: web build artifacts
-          path: |
-            packages/admin/dist
-            packages/app/dist
-            packages/gui/build
+          token: ${{ secrets.GITHUB_TOKEN }}
+          files: |
+            packages/admin/admin.zip
+            packages/gui/gui.zip
+            packages/app/app.zip
 
       
