@@ -41,7 +41,9 @@ jobs:
         run: yarn bootstrap
       
       - name: Build
-        run: yarn build
+        run: CI=0 yarn build
+        env: 
+          CI: 0
 
       - name: Install zip
         uses: montudor/action-zip@v1
