@@ -6,7 +6,9 @@ const fs = require("fs");
 require('dotenv').config({
   debug: true
 })
-
+console.log("------------")
+console.log(JSON.stringify(process.env, null, 2))
+console.log("------------")
 const port = process.env.APP_PORT ? parseInt(process.env.APP_PORT) : 8001;
 const name = "app";
 
