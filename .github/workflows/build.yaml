@@ -58,12 +58,13 @@ jobs:
         run: zip -qq -r gui.zip build
         working-directory: packages/gui
 
-      - uses: pyTooling/Actions/releaser@r0
+      - name: Release
+        uses: softprops/action-gh-release@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           files: |
             packages/admin/admin.zip
             packages/gui/gui.zip
             packages/app/app.zip
+
 
       
