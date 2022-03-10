@@ -6,6 +6,11 @@ const fs = require("fs");
 const port = process.env.ADMIN_PORT ? parseInt(process.env.ADMIN_PORT) : 8002;
 const name = "admin";
 
+require('dotenv').config({
+  debug: true,
+  override: true
+})
+
 const getVercelPreviewUrl = (moduleName) =>
   `https://scratch-tutoring-web-${moduleName}-git-${process.env.VERCEL_GIT_COMMIT_REF}.stg-branch.be`;
 

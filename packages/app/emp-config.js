@@ -4,7 +4,8 @@ const { resolveApp } = require("@efox/emp-cli/helpers/paths");
 const path = require("path");
 const fs = require("fs");
 require('dotenv').config({
-  debug: true
+  debug: true,
+  override: true
 })
 console.log("------------")
 console.log(JSON.stringify(process.env, null, 2))
