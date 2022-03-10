@@ -61,6 +61,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
+          tag_name: tip
           files: |
             packages/admin/admin.zip
             packages/gui/gui.zip
