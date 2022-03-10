@@ -26,7 +26,7 @@ jobs:
           echo "SCHEMA_PATH=https://api-scratch-tutoring.stg-branch.be/graphql" >> packages/app/.env
           echo "APP_URL=http://dash.dongseo.ac.kr" >> packages/app/.env
           echo "ADMIN_URL=http://one-dash.dongseo.ac.kr" >> packages/app/.env
-          echo "CI=false" >> packages/app/.env
+          echo "CI=0" >> packages/app/.env
           
           cat packages/app/.env
       - name: Add envs to admin
@@ -34,8 +34,8 @@ jobs:
           echo "SCHEMA_PATH=https://api-scratch-tutoring.stg-branch.be/graphql" >> packages/admin/.env
           echo "APP_URL=http://one-dash.dongseo.ac.kr" >> packages/admin/.env
           echo "ADMIN_URL=http://one-dash.dongseo.ac.kr" >> packages/admin/.env
-          echo "CI=false" >> packages/app/.env
-          
+          echo "CI=0" >> packages/app/.env
+
           cat packages/admin/.env
       - name: Install dependencies
         run: yarn bootstrap
