@@ -23,7 +23,7 @@ jobs:
 
       - name: Add envs to app
         run: |
-          echo "SCHEMA_PATH=https://api-scratch-tutoring.stg-branch.be/graphql" > packages/app/.env
+          echo "SCHEMA_PATH=https://api-scratch-tutoring.stg-branch.be/graphql \n APP_URL=http://dash.dongseo.ac.kr" > packages/app/.env
       - name: Add envs to admin
         run: |
           echo "SCHEMA_PATH=https://api-scratch-tutoring.stg-branch.be/graphql" > packages/admin/.env
