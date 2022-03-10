@@ -3,6 +3,9 @@ const deps = require("./package.json").dependencies;
 const { resolveApp } = require("@efox/emp-cli/helpers/paths");
 const path = require("path");
 const fs = require("fs");
+require('dotenv').config({
+  debug: true
+})
 
 const port = process.env.APP_PORT ? parseInt(process.env.APP_PORT) : 8001;
 const name = "app";
