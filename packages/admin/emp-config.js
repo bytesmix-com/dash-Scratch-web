@@ -34,7 +34,7 @@ const REMOTE_URL = {
 
 const getRemoteUrl = () => {
   if (!process.env.VERCEL_ENV) {
-    if (process.env.CI) return REMOTE_URL.ci;
+    if (process.env.CI !== "0") return REMOTE_URL.ci;
     return REMOTE_URL.local;
   }
   if (process.env.VERCEL_ENV === "preview") return REMOTE_URL.preview;
