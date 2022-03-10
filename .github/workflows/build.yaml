@@ -32,9 +32,9 @@ jobs:
       - name: Add envs to admin
         run: |
           echo "SCHEMA_PATH=https://api-scratch-tutoring.stg-branch.be/graphql" >> packages/admin/.env
-          echo "APP_URL=http://one-dash.dongseo.ac.kr" >> packages/admin/.env
+          echo "APP_URL=http://dash.dongseo.ac.kr" >> packages/admin/.env
           echo "ADMIN_URL=http://one-dash.dongseo.ac.kr" >> packages/admin/.env
-          echo "CI=0" >> packages/app/.env
+          echo "CI=0" >> packages/admin/.env
 
           cat packages/admin/.env
       - name: Install dependencies
