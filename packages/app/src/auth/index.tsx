@@ -4,6 +4,7 @@ import {
   Flex,
   FormControl,
   FormLabel,
+  HStack,
   Input,
   Stack,
   Text,
@@ -121,10 +122,20 @@ export const Auth = () => {
             </Button>
 
             <SpacerV h={2} />
-
-            <Checkbox {...register("save-loginId")}>
-              <Text variant="body-4">아이디 저장</Text>
-            </Checkbox>
+            <HStack justify="space-between">
+              <Checkbox {...register("save-loginId")}>
+                <Text variant="body-4">아이디 저장</Text>
+              </Checkbox>
+              <Text
+                mt={3}
+                variant="body-4"
+                color="blue.500"
+                cursor="pointer"
+                onClick={() => window.open("/privacy.html", "_blank")}
+              >
+                개인정보 처리방침
+              </Text>
+            </HStack>
           </Stack>
         </Stack>
       </Flex>
