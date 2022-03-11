@@ -56,8 +56,8 @@ export const Lesson = () => {
   const playlist = video?.playlist;
 
   const [mode, setMode] = React.useState("vertical");
-
-  const scratchUrl = `https://scratch-tutoring-web-gui.stg-branch.be/#${
+  // https://scratch-tutoring-web-gui.stg-branch.be
+  const scratchUrl = `https://dash.dongseo.ac.kr:82/#${
     studentId.data?.studentMe.id
   }-${
     // eslint-disable-next-line no-nested-ternary
