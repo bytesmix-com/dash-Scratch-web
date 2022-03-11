@@ -44,8 +44,10 @@ export default (appTarget) => {
   ReactDOM.render(
     <WrappedGui
       className="gui"
-      assetHost={"https://api-scratch-tutoring.stg-branch.be/gui/asset"}
-      projectHost={"https://api-scratch-tutoring.stg-branch.be/gui/project"}
+//       assetHost={"https://api-scratch-tutoring.stg-branch.be/gui/asset"}
+//       projectHost={"https://api-scratch-tutoring.stg-branch.be/gui/project"}
+      assetHost={"https://dash.dongseo.ac.kr:81/gui/asset"}
+      projectHost={"https://dash.dongseo.ac.kr:81/gui/project"}
       canSave
       canCreateNew={false}
       basePath="/"
