@@ -5,6 +5,7 @@ import {
   FormControl,
   FormLabel,
   HStack,
+  Img,
   Input,
   Stack,
   Text,
@@ -78,6 +79,7 @@ export const Auth = () => {
         >
           <Stack spacing={0}>
             <Stack w="312px" align="center" spacing={-2}>
+              <Img w="200px" mb="20px" src="https://media-cdn.branch.so/01FYN0R6RRABD6GGQV26A7WYQ6/dongseo-logo.jpeg" />
               <Text fontWeight="bold" fontSize="40px" color="blue.500">
                 DASH-Scratch
               </Text>
